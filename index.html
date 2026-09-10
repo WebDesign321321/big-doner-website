@@ -1,0 +1,1103 @@
+<title>Big Doner Шахтинск</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --coal-950:#16110d;
+    --coal-900:#1f1712;
+    --coal-850:#251b14;
+    --coal-800:#2f2319;
+    --coal-700:#43301f;
+    --ember-500:#ff6a2b;
+    --ember-600:#f0501c;
+    --ember-700:#d8321a;
+    --gold-400:#f2b441;
+    --smoke-200:#ede6dd;
+    --smoke-400:#b8aa9c;
+    --smoke-600:#8a7c6e;
+
+    --font-display:'Unbounded', 'Arial Black', sans-serif;
+    --font-body:'Manrope', 'Segoe UI', sans-serif;
+    --font-mono:'JetBrains Mono', 'Consolas', monospace;
+
+    --ease-out:cubic-bezier(0.16,1,0.3,1);
+    --ease-soft:cubic-bezier(0.22,1,0.36,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--coal-950);
+    color:var(--smoke-200);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* film-grain texture, fixed overlay */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:60;
+    pointer-events:none;
+    opacity:.05;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  img{max-width:100%;}
+  [hidden]{display:none!important;}
+  a{color:inherit;}
+  button{font:inherit;color:inherit;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding-inline:24px;
+  }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    color:var(--smoke-200);
+    margin:0;
+    text-wrap:balance;
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ember-500);
+  }
+
+  p{margin:0;}
+  .prose{max-width:42ch;color:var(--smoke-400);font-size:16px;line-height:1.65;}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:50;
+    background:rgba(22,17,13,0);
+    border-bottom:1px solid rgba(237,230,221,0);
+    transition:background .4s var(--ease-soft), border-color .4s var(--ease-soft), backdrop-filter .4s var(--ease-soft);
+  }
+  .nav.is-scrolled{
+    background:rgba(22,17,13,.86);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--coal-800);
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-block:18px;
+  }
+  .wordmark{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+    text-decoration:none;
+  }
+  .wordmark strong{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:19px;
+    letter-spacing:.01em;
+    color:var(--smoke-200);
+  }
+  .wordmark span{
+    font-family:var(--font-mono);
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ember-500);
+    margin-top:3px;
+  }
+  .nav-links{
+    display:flex;
+    gap:32px;
+    list-style:none;
+    margin:0;padding:0;
+    font-size:14px;
+    font-weight:600;
+  }
+  .nav-links a{
+    text-decoration:none;
+    color:var(--smoke-400);
+    transition:color .25s var(--ease-out);
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--smoke-200);}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:14px;
+    border-radius:999px;
+    padding:12px 20px;
+    border:1px solid transparent;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .5s var(--ease-soft), background .3s var(--ease-out), box-shadow .4s var(--ease-out);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-ember{
+    background:linear-gradient(135deg, var(--ember-500), var(--ember-700));
+    color:#1a0f08;
+    box-shadow:0 10px 30px -12px rgba(255,106,43,.55);
+  }
+  .btn-ember:hover{box-shadow:0 14px 38px -10px rgba(255,106,43,.75);}
+  .btn-ghost{
+    background:rgba(237,230,221,.04);
+    border-color:var(--coal-800);
+    color:var(--smoke-200);
+  }
+  .btn-ghost:hover{background:rgba(237,230,221,.08);}
+  .btn-icon{
+    width:16px;height:16px;flex:none;
+  }
+
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-toggle{
+    display:none;
+    width:40px;height:40px;
+    border-radius:10px;
+    background:rgba(237,230,221,.05);
+    border:1px solid var(--coal-800);
+    position:relative;
+    flex:none;
+  }
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{
+    content:"";
+    position:absolute;
+    left:10px;right:10px;
+    height:2px;
+    background:var(--smoke-200);
+    transition:transform .4s var(--ease-soft), opacity .3s var(--ease-out), top .4s var(--ease-soft);
+  }
+  .nav-toggle span{top:19px;}
+  .nav-toggle span::before{top:-7px;}
+  .nav-toggle span::after{top:7px;}
+  .nav-toggle[aria-expanded="true"] span{background:transparent;}
+  .nav-toggle[aria-expanded="true"] span::before{top:0;transform:rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg);}
+
+  .mobile-panel{
+    display:none;
+    position:fixed;inset:0;
+    z-index:45;
+    background:rgba(22,17,13,.97);
+    backdrop-filter:blur(10px);
+    padding:96px 24px 40px;
+    flex-direction:column;
+    gap:28px;
+  }
+  .mobile-panel.is-open{display:flex;}
+  .mobile-panel a{
+    font-family:var(--font-display);
+    font-size:28px;
+    text-decoration:none;
+    color:var(--smoke-200);
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .5s var(--ease-out), transform .5s var(--ease-out);
+  }
+  .mobile-panel.is-open a{opacity:1;transform:translateY(0);}
+  .mobile-panel a:nth-child(1){transition-delay:.05s;}
+  .mobile-panel a:nth-child(2){transition-delay:.11s;}
+  .mobile-panel a:nth-child(3){transition-delay:.17s;}
+  .mobile-panel a:nth-child(4){transition-delay:.23s;}
+
+  @media (max-width:760px){
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    padding-top:150px;
+    padding-bottom:96px;
+    overflow:hidden;
+  }
+  .hero-glow{
+    position:absolute;
+    top:-220px; right:-160px;
+    width:640px;height:640px;
+    background:radial-gradient(circle, rgba(255,106,43,.30), rgba(216,50,26,.10) 45%, transparent 70%);
+    filter:blur(10px);
+    pointer-events:none;
+  }
+  .hero-glow.two{
+    top:40%; left:-220px; right:auto;
+    width:480px;height:480px;
+    background:radial-gradient(circle, rgba(242,180,65,.14), transparent 70%);
+  }
+  #ember-canvas{
+    position:absolute;inset:0;
+    z-index:1;
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-status{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(237,230,221,.04);
+    border:1px solid var(--coal-800);
+    border-radius:999px;
+    padding:7px 14px 7px 10px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.04em;
+    color:var(--smoke-400);
+    margin-bottom:22px;
+  }
+  .status-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:#5ee08a;
+    box-shadow:0 0 0 3px rgba(94,224,138,.18);
+    flex:none;
+  }
+  .hero h1{
+    font-weight:800;
+    font-size:clamp(2.6rem, 6vw, 4.7rem);
+    line-height:1.03;
+    letter-spacing:-.01em;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg, var(--gold-400), var(--ember-500) 55%, var(--ember-700));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .reveal-line{
+    display:block;
+    overflow:hidden;
+  }
+  .reveal-line span{
+    display:inline-block;
+    transform:translateY(115%);
+  }
+  .hero .prose{
+    max-width:46ch;
+    font-size:17.5px;
+    margin-top:22px;
+  }
+  .hero-ctas{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:32px;
+  }
+  .hero-rating{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:38px;
+    padding-top:26px;
+    border-top:1px solid var(--coal-800);
+  }
+  .rating-score{
+    font-family:var(--font-mono);
+    font-size:28px;
+    font-weight:600;
+    color:var(--smoke-200);
+  }
+  .rating-stars{color:var(--gold-400);font-size:14px;letter-spacing:2px;}
+  .rating-meta{font-size:13px;color:var(--smoke-600);}
+
+  .hero-visual{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:440px;
+  }
+  .skewer-ring{
+    position:absolute;
+    width:100%;height:100%;
+    border-radius:50%;
+    border:1px dashed var(--coal-700);
+  }
+  .skewer-ring.small{
+    width:72%;height:72%;
+    border-color:var(--coal-800);
+  }
+  #skewer-svg{
+    width:220px;height:auto;
+    position:relative;
+    z-index:2;
+    filter:drop-shadow(0 30px 40px rgba(0,0,0,.45));
+    transform-origin:50% 8%;
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{height:300px;order:-1;}
+    #skewer-svg{width:170px;}
+  }
+
+  /* ============ MARQUEE ============ */
+  .marquee-strip{
+    border-top:1px solid var(--coal-800);
+    border-bottom:1px solid var(--coal-800);
+    background:var(--coal-900);
+    overflow:hidden;
+    padding-block:16px;
+  }
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    animation:marquee 26s linear infinite;
+    gap:0;
+  }
+  .marquee-track span{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    color:var(--smoke-600);
+    padding-inline:20px;
+    white-space:nowrap;
+    display:flex;align-items:center;gap:20px;
+  }
+  .marquee-track span::after{content:"◆";color:var(--ember-600);font-size:9px;}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ============ SECTION SHELL ============ */
+  section{padding-block:96px;position:relative;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:52px;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.7rem);
+    font-weight:700;
+    margin-top:10px;
+    max-width:16ch;
+  }
+  .section-head .prose{margin-top:0;text-align:right;}
+  @media (max-width:700px){
+    .section-head{flex-direction:column;align-items:flex-start;}
+    .section-head .prose{text-align:left;}
+  }
+
+  /* ============ MENU BENTO ============ */
+  .bento{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:2px;
+    background:var(--coal-800);
+    border:1px solid var(--coal-800);
+    border-radius:24px;
+    overflow:hidden;
+  }
+  .bento-card{
+    background:var(--coal-900);
+    padding:34px 28px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    min-height:260px;
+    perspective:900px;
+    position:relative;
+  }
+  .bento-card .tilt-inner{
+    display:flex;flex-direction:column;gap:18px;height:100%;
+    transform-style:preserve-3d;
+    transition:transform .5s var(--ease-out);
+    will-change:transform;
+  }
+  .bento-icon{
+    width:46px;height:46px;
+    border-radius:13px;
+    background:linear-gradient(155deg, rgba(255,106,43,.16), rgba(255,106,43,.03));
+    border:1px solid var(--coal-700);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ember-500);
+    flex:none;
+  }
+  .bento-icon svg{width:22px;height:22px;}
+  .bento-card h3{font-size:19px;font-weight:700;font-family:var(--font-body);}
+  .bento-card p{font-size:14.5px;color:var(--smoke-600);line-height:1.55;}
+  .bento-tag{
+    margin-top:auto;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--smoke-600);
+  }
+  .bento-glare{
+    position:absolute;inset:0;
+    background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%), rgba(255,106,43,.10), transparent 60%);
+    opacity:0;
+    transition:opacity .4s var(--ease-out);
+    pointer-events:none;
+  }
+  .bento-card:hover .bento-glare{opacity:1;}
+  @media (max-width:900px){
+    .bento{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .bento{grid-template-columns:1fr;}
+  }
+  .menu-note{
+    margin-top:22px;
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--smoke-600);
+  }
+
+  /* ============ WHY (sticky split) ============ */
+  .why{background:var(--coal-900);border-top:1px solid var(--coal-800);border-bottom:1px solid var(--coal-800);}
+  .why-grid{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:60px;
+  }
+  .why-sticky{position:sticky;top:120px;align-self:start;}
+  .why-sticky h2{font-size:clamp(1.9rem,3.6vw,2.9rem);}
+  .why-list{display:flex;flex-direction:column;gap:2px;background:var(--coal-800);border:1px solid var(--coal-800);border-radius:18px;overflow:hidden;}
+  .why-item{
+    background:var(--coal-900);
+    padding:28px 26px;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+  }
+  .why-num{
+    font-family:var(--font-mono);
+    color:var(--ember-500);
+    font-size:13px;
+    padding-top:3px;
+    flex:none;
+    width:28px;
+  }
+  .why-item h3{font-size:17px;font-weight:700;font-family:var(--font-body);margin-bottom:6px;}
+  .why-item p{font-size:14.5px;color:var(--smoke-600);}
+  @media (max-width:860px){
+    .why-grid{grid-template-columns:1fr;}
+    .why-sticky{position:static;margin-bottom:8px;}
+  }
+
+  /* ============ TICKET STRIP ============ */
+  .ticket{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border:1px dashed var(--coal-700);
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .ticket-cell{
+    padding:26px 24px;
+    border-left:1px dashed var(--coal-700);
+  }
+  .ticket-cell:first-child{border-left:none;}
+  .ticket-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--smoke-600);
+    margin-bottom:10px;
+  }
+  .ticket-value{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:26px;
+    font-weight:600;
+    color:var(--smoke-200);
+  }
+  .ticket-value small{font-size:13px;color:var(--smoke-600);font-weight:500;margin-left:4px;}
+  @media (max-width:640px){
+    .ticket{grid-template-columns:1fr;}
+    .ticket-cell{border-left:none;border-top:1px dashed var(--coal-700);}
+    .ticket-cell:first-child{border-top:none;}
+  }
+
+  /* ============ LOCATION ============ */
+  .loc-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2px;
+    background:var(--coal-800);
+    border:1px solid var(--coal-800);
+    border-radius:24px;
+    overflow:hidden;
+  }
+  .loc-panel{background:var(--coal-900);padding:40px;}
+  .loc-row{
+    display:flex;
+    gap:16px;
+    padding-block:16px;
+    border-top:1px solid var(--coal-800);
+  }
+  .loc-row:first-of-type{border-top:none;padding-top:0;}
+  .loc-icon{
+    width:38px;height:38px;flex:none;
+    border-radius:10px;
+    background:rgba(255,106,43,.08);
+    border:1px solid var(--coal-700);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ember-500);
+  }
+  .loc-icon svg{width:17px;height:17px;}
+  .loc-row h3{font-family:var(--font-body);font-size:15px;font-weight:700;margin-bottom:4px;}
+  .loc-row p{font-size:14.5px;color:var(--smoke-600);}
+  .loc-row a{color:var(--smoke-200);text-decoration:none;border-bottom:1px solid var(--coal-700);transition:border-color .25s var(--ease-out);}
+  .loc-row a:hover{border-color:var(--ember-500);}
+  .features-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+  .chip{
+    font-family:var(--font-mono);
+    font-size:12px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(237,230,221,.04);
+    border:1px solid var(--coal-800);
+    color:var(--smoke-400);
+  }
+  .loc-map{
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,106,43,.10), transparent 55%),
+      repeating-linear-gradient(0deg, rgba(237,230,221,.035) 0 1px, transparent 1px 46px),
+      repeating-linear-gradient(90deg, rgba(237,230,221,.035) 0 1px, transparent 1px 46px);
+  }
+  .map-pin{
+    position:relative;
+    display:flex;flex-direction:column;align-items:center;
+    gap:14px;
+  }
+  .map-pin-dot{
+    width:60px;height:60px;
+    border-radius:50% 50% 50% 0;
+    transform:rotate(45deg);
+    background:linear-gradient(135deg, var(--ember-500), var(--ember-700));
+    box-shadow:0 20px 40px -14px rgba(255,106,43,.6);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .map-pin-dot svg{transform:rotate(-45deg);width:22px;height:22px;color:#1a0f08;}
+  .map-pin-pulse{
+    position:absolute;
+    top:30px;
+    width:60px;height:60px;
+    border-radius:50%;
+    border:1px solid var(--ember-500);
+    opacity:0;
+    animation:pulse 2.6s var(--ease-soft) infinite;
+  }
+  @keyframes pulse{
+    0%{opacity:.5;transform:scale(.5);}
+    100%{opacity:0;transform:scale(2.4);}
+  }
+  .map-pin span{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--smoke-400);
+    text-align:center;
+    max-width:22ch;
+  }
+  @media (max-width:820px){
+    .loc-grid{grid-template-columns:1fr;}
+    .loc-map{min-height:260px;}
+  }
+
+  /* reveal-on-scroll (gsap adds .is-visible) */
+  .fx-up{opacity:.001;transform:translateY(34px);}
+  .fx-up.is-visible{opacity:1;transform:translateY(0);transition:opacity .9s var(--ease-out), transform .9s var(--ease-out);}
+
+  /* ============ FOOTER ============ */
+  footer{
+    border-top:1px solid var(--coal-800);
+    padding-block:56px 40px;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:32px;
+  }
+  .footer-brand strong{font-family:var(--font-display);font-size:20px;font-weight:800;}
+  .footer-brand p{margin-top:8px;font-size:13.5px;color:var(--smoke-600);max-width:34ch;}
+  .footer-meta{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--smoke-600);
+    text-align:right;
+  }
+  .footer-meta a{text-decoration:none;color:var(--smoke-400);}
+  @media (max-width:600px){
+    .footer-row{flex-direction:column;align-items:flex-start;}
+    .footer-meta{text-align:left;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+    .reveal-line span{transform:none;}
+    .fx-up{opacity:1!important;transform:none!important;}
+  }
+</style>
+
+<nav class="nav" id="site-nav">
+  <div class="wrap nav-row">
+    <a href="#top" class="wordmark">
+      <strong>BIG DONER</strong>
+      <span>Шахтинск</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#menu">Меню</a></li>
+      <li><a href="#why">Почему мы</a></li>
+      <li><a href="#location">Локация</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ember" href="tel:+77023793863">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.79.68 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.45a2 2 0 0 1 2.11-.45c.84.33 1.73.56 2.63.68A2 2 0 0 1 22 16.92z"/></svg>
+        Позвонить
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="Открыть меню" aria-controls="mobile-panel"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-panel" id="mobile-panel">
+  <a href="#menu">Меню</a>
+  <a href="#why">Почему мы</a>
+  <a href="#location">Локация</a>
+  <a href="tel:+77023793863">+7 (702) 379-38-63</a>
+</div>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow two"></div>
+    <canvas id="ember-canvas"></canvas>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          Открыто сегодня · до 00:00
+        </div>
+        <h1>
+          <span class="reveal-line"><span>ГОРЯЧЕЕ УГЛЯ.</span></span>
+          <span class="reveal-line"><span><em>ВКУСНЕЕ ОГНЯ.</em></span></span>
+        </h1>
+        <p class="prose">Донер, пицца и кофе с собой в самом центре Шахтинска — рядом с автовокзалом. Готовим быстро, едим горячим, работаем до полуночи.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-ember" href="tel:+77023793863">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.79.68 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.45a2 2 0 0 1 2.11-.45c.84.33 1.73.56 2.63.68A2 2 0 0 1 22 16.92z"/></svg>
+            Позвонить и заказать
+          </a>
+          <a class="btn btn-ghost" href="#menu">Смотреть меню</a>
+        </div>
+        <div class="hero-rating">
+          <span class="rating-score">5,0</span>
+          <div>
+            <div class="rating-stars">★★★★★</div>
+            <div class="rating-meta">14 оценок на 2ГИС</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="skewer-ring"></div>
+        <div class="skewer-ring small"></div>
+        <svg id="skewer-svg" viewBox="0 0 140 320" fill="none">
+          <line x1="70" y1="6" x2="70" y2="300" stroke="#8a7c6e" stroke-width="3"/>
+          <rect x="60" y="0" width="20" height="14" rx="4" fill="#43301f"/>
+          <ellipse cx="70" cy="40" rx="46" ry="24" fill="url(#g1)"/>
+          <ellipse cx="70" cy="76" rx="50" ry="26" fill="url(#g2)"/>
+          <ellipse cx="70" cy="114" rx="47" ry="25" fill="url(#g1)"/>
+          <ellipse cx="70" cy="150" rx="51" ry="27" fill="url(#g2)"/>
+          <ellipse cx="70" cy="188" rx="46" ry="24" fill="url(#g1)"/>
+          <ellipse cx="70" cy="222" rx="49" ry="25" fill="url(#g2)"/>
+          <ellipse cx="70" cy="256" rx="42" ry="22" fill="url(#g1)"/>
+          <rect x="55" y="298" width="30" height="16" rx="4" fill="#43301f"/>
+          <defs>
+            <linearGradient id="g1" x1="24" y1="16" x2="116" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f2b441"/><stop offset="1" stop-color="#d8321a"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="20" y1="50" x2="120" y2="102" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ff6a2b"/><stop offset="1" stop-color="#a3230f"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Донер</span><span>Пицца</span><span>Кофе с собой</span><span>Доставка</span><span>Навынос</span>
+      <span>Донер</span><span>Пицца</span><span>Кофе с собой</span><span>Доставка</span><span>Навынос</span>
+    </div>
+  </div>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head fx-up">
+        <div>
+          <div class="eyebrow">Меню</div>
+          <h2>Что готовим на углях</h2>
+        </div>
+        <p class="prose">Четыре причины завернуть на просп. Абая Кунанбаева, 99/2 — даже если вы просто проездом.</p>
+      </div>
+
+      <div class="bento fx-up">
+        <article class="bento-card">
+          <div class="bento-glare"></div>
+          <div class="tilt-inner">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M8 5h8M7 9h10M6.5 13h11M8 17h8"/></svg>
+            </div>
+            <h3>Донер</h3>
+            <p>Сочное мясо с вертела, хрустящий лаваш, домашние соусы на выбор.</p>
+            <span class="bento-tag">Хит меню</span>
+          </div>
+        </article>
+        <article class="bento-card">
+          <div class="bento-glare"></div>
+          <div class="tilt-inner">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 11v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+            </div>
+            <h3>Пицца</h3>
+            <p>Тонкое тесто, настоящая печь, начинки без экономии на сыре.</p>
+            <span class="bento-tag">Из печи</span>
+          </div>
+        </article>
+        <article class="bento-card">
+          <div class="bento-glare"></div>
+          <div class="tilt-inner">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+            </div>
+            <h3>Кофе с собой</h3>
+            <p>Взбодриться по пути на автовокзал — без очереди и лишнего ожидания.</p>
+            <span class="bento-tag">На бегу</span>
+          </div>
+        </article>
+        <article class="bento-card">
+          <div class="bento-glare"></div>
+          <div class="tilt-inner">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="15" height="10" rx="1.5"/><path d="M16 10h3l3 3v4h-6z"/><circle cx="6" cy="19.5" r="1.6"/><circle cx="17.5" cy="19.5" r="1.6"/></svg>
+            </div>
+            <h3>Доставка и навынос</h3>
+            <p>Заберите сами или закажите с доставкой — как удобнее.</p>
+            <span class="bento-tag">Как удобно</span>
+          </div>
+        </article>
+      </div>
+      <p class="menu-note">Актуальное меню, состав и цены уточняйте по телефону — +7 (702) 379-38-63.</p>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap why-grid">
+      <div class="why-sticky fx-up">
+        <div class="eyebrow">Почему мы</div>
+        <h2>Не сетевой фастфуд, а свои — на районе</h2>
+        <p class="prose" style="margin-top:16px;">Маленькая точка с большими порциями. Вот что нас отличает от того, к чему вы привыкли.</p>
+      </div>
+      <div class="why-list fx-up">
+        <div class="why-item">
+          <span class="why-num">01</span>
+          <div><h3>Готовим на углях, а не на конвейере</h3><p>Каждая порция собирается под заказ — вкус чувствуется в первом же кусочке.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">02</span>
+          <div><h3>Открыто допоздна — до 00:00</h3><p>Когда остальные точки в городе уже закрылись, мы всё ещё готовим.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">03</span>
+          <div><h3>128 метров от автовокзала</h3><p>Удобно зайти перед рейсом или сразу после — рядом, пешком, без крюка.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">04</span>
+          <div><h3>Берём с собой</h3><p>Доставка, еда навынос и кофе с собой — если некогда сидеть и ждать.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="ticket fx-up">
+        <div class="ticket-cell">
+          <div class="ticket-label">Рейтинг · 2ГИС</div>
+          <div class="ticket-value">5,0 <small>/ 5</small></div>
+        </div>
+        <div class="ticket-cell">
+          <div class="ticket-label">Оценок</div>
+          <div class="ticket-value">14 <small>отзывов</small></div>
+        </div>
+        <div class="ticket-cell">
+          <div class="ticket-label">Закрытие</div>
+          <div class="ticket-value">00:00 <small>ежедневно</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="location">
+    <div class="wrap">
+      <div class="section-head fx-up">
+        <div>
+          <div class="eyebrow">Локация</div>
+          <h2>Как нас найти</h2>
+        </div>
+      </div>
+
+      <div class="loc-grid fx-up">
+        <div class="loc-panel">
+          <div class="loc-row">
+            <div class="loc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h3>Адрес</h3>
+              <p>просп. Абая Кунанбаева, 99/2, Шахтинск</p>
+            </div>
+          </div>
+          <div class="loc-row">
+            <div class="loc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h3>Время работы</h3>
+              <p>Сегодня открыто до 00:00</p>
+            </div>
+          </div>
+          <div class="loc-row">
+            <div class="loc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.79.68 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.45a2 2 0 0 1 2.11-.45c.84.33 1.73.56 2.63.68A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h3>Телефон</h3>
+              <p><a href="tel:+77023793863">+7 (702) 379-38-63</a></p>
+            </div>
+          </div>
+          <div class="loc-row">
+            <div class="loc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            </div>
+            <div>
+              <h3>Автовокзал Шахтинск</h3>
+              <p>128 м пешком — ближайший ориентир</p>
+            </div>
+          </div>
+
+          <div class="features-row">
+            <span class="chip">Доставка еды</span>
+            <span class="chip">Еда навынос</span>
+            <span class="chip">Кофе с собой</span>
+          </div>
+        </div>
+
+        <div class="loc-panel loc-map">
+          <div class="map-pin">
+            <div class="map-pin-pulse"></div>
+            <div class="map-pin-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span>просп. Абая Кунанбаева, 99/2 · рядом с автовокзалом Шахтинск</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="footer-brand">
+      <strong>BIG DONER</strong>
+      <p>Быстрое питание и пиццерия в Шахтинске. Донер, пицца, кофе с собой — до полуночи.</p>
+    </div>
+    <div class="footer-meta">
+      просп. Абая Кунанбаева, 99/2, Шахтинск<br>
+      <a href="tel:+77023793863">+7 (702) 379-38-63</a><br>
+      Дизайн-прототип сайта
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* nav scroll state */
+  var nav = document.getElementById('site-nav');
+  function onScroll(){
+    if(window.scrollY > 12){ nav.classList.add('is-scrolled'); }
+    else{ nav.classList.remove('is-scrolled'); }
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* mobile menu toggle */
+  var toggle = document.getElementById('nav-toggle');
+  var panel = document.getElementById('mobile-panel');
+  toggle.addEventListener('click', function(){
+    var open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    panel.classList.toggle('is-open', !open);
+    document.body.style.overflow = !open ? 'hidden' : '';
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      toggle.setAttribute('aria-expanded','false');
+      panel.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* card tilt + glare on bento cards */
+  document.querySelectorAll('.bento-card').forEach(function(card){
+    var inner = card.querySelector('.tilt-inner');
+    if(reduceMotion) return;
+    card.addEventListener('pointermove', function(e){
+      var r = card.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width;
+      var py = (e.clientY - r.top) / r.height;
+      card.style.setProperty('--mx', (px*100)+'%');
+      card.style.setProperty('--my', (py*100)+'%');
+      var rx = (0.5 - py) * 10;
+      var ry = (px - 0.5) * 10;
+      inner.style.transform = 'rotateX('+rx+'deg) rotateY('+ry+'deg) translateZ(4px)';
+    });
+    card.addEventListener('pointerleave', function(){
+      inner.style.transform = 'rotateX(0) rotateY(0)';
+    });
+  });
+
+  /* ember particles */
+  var canvas = document.getElementById('ember-canvas');
+  var ctx = canvas.getContext('2d');
+  var hero = canvas.closest('.hero');
+  var particles = [];
+  var W, H, DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize(){
+    W = hero.offsetWidth; H = hero.offsetHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    canvas.style.width = W+'px'; canvas.style.height = H+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  function makeParticle(){
+    return {
+      x: Math.random()*W,
+      y: H + Math.random()*80,
+      r: 1 + Math.random()*2.2,
+      speed: 0.25 + Math.random()*0.55,
+      drift: (Math.random()-0.5)*0.4,
+      alpha: 0.25 + Math.random()*0.5,
+      hue: Math.random() > 0.5 ? '255,106,43' : '242,180,65'
+    };
+  }
+  function init(){
+    resize();
+    particles = [];
+    var count = W < 620 ? 20 : 42;
+    for(var i=0;i<count;i++){ particles.push(makeParticle()); }
+  }
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(function(p){
+      p.y -= p.speed;
+      p.x += p.drift;
+      if(p.y < -10){ Object.assign(p, makeParticle(), {y: H+10}); }
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba('+p.hue+','+p.alpha+')';
+      ctx.shadowColor = 'rgba('+p.hue+',0.9)';
+      ctx.shadowBlur = 6;
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+    });
+    requestAnimationFrame(tick);
+  }
+  window.addEventListener('resize', resize);
+  init();
+  if(!reduceMotion){ requestAnimationFrame(tick); }
+  else {
+    /* static single frame for reduced motion */
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(function(p){
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba('+p.hue+','+p.alpha+')';
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+    });
+  }
+
+  /* gsap: hero reveal + scroll reveals */
+  if(window.gsap){
+    gsap.registerPlugin(ScrollTrigger);
+
+    var tl = gsap.timeline({defaults:{ease:'power3.out'}});
+    tl.to('.reveal-line span', {
+      y:0, duration: reduceMotion ? 0.01 : 1.1, stagger:0.12
+    }, 0.15)
+    .from('.hero-status', {opacity:0, y:-10, duration:0.7}, 0.1)
+    .from('.hero .prose', {opacity:0, y:16, duration:0.8}, 0.55)
+    .from('.hero-ctas', {opacity:0, y:16, duration:0.8}, 0.68)
+    .from('.hero-rating', {opacity:0, y:16, duration:0.8}, 0.8)
+    .from('.hero-visual', {opacity:0, scale:0.92, duration:1.1, ease:'power2.out'}, 0.2);
+
+    if(!reduceMotion){
+      gsap.to('#skewer-svg', {
+        rotate: 6, transformOrigin:'50% 8%',
+        duration: 3.2, ease:'sine.inOut', yoyo:true, repeat:-1
+      });
+    }
+
+    gsap.utils.toArray('.fx-up').forEach(function(el){
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        onEnter: function(){ el.classList.add('is-visible'); },
+        once: true
+      });
+    });
+
+    gsap.utils.toArray('.why-item').forEach(function(item, i){
+      gsap.fromTo(item, {opacity:0.001, y:22}, {
+        opacity:1, y:0, duration:0.8, ease:'power2.out',
+        scrollTrigger:{ trigger:item, start:'top 88%' }
+      });
+    });
+  } else {
+    document.querySelectorAll('.fx-up, .reveal-line span').forEach(function(el){
+      el.style.opacity = '1'; el.style.transform='none';
+    });
+  }
+})();
+</script>
