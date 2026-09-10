@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#16110d">
+<meta name="description" content="Big Doner — донер, пицца и кофе с собой в Шахтинске. Просп. Абая Кунанбаева, 99/2, рядом с автовокзалом. Открыто до 00:00.">
 <title>Big Doner Шахтинск</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +33,7 @@
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
   body{
     margin:0;
     background:var(--coal-950);
@@ -36,6 +43,7 @@
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+    max-width:100vw;
     position:relative;
   }
 
@@ -145,7 +153,8 @@
     font-weight:700;
     font-size:14px;
     border-radius:999px;
-    padding:12px 20px;
+    padding:13px 22px;
+    min-height:44px;
     border:1px solid transparent;
     cursor:pointer;
     text-decoration:none;
@@ -231,6 +240,9 @@
     padding-top:150px;
     padding-bottom:96px;
     overflow:hidden;
+  }
+  @media (max-width:600px){
+    .hero{padding-top:112px;padding-bottom:64px;}
   }
   .hero-glow{
     position:absolute;
@@ -387,6 +399,9 @@
 
   /* ============ SECTION SHELL ============ */
   section{padding-block:96px;position:relative;}
+  @media (max-width:600px){
+    section{padding-block:64px;}
+  }
   .section-head{
     display:flex;
     justify-content:space-between;
@@ -664,6 +679,8 @@
     .fx-up{opacity:1!important;transform:none!important;}
   }
 </style>
+</head>
+<body>
 
 <nav class="nav" id="site-nav">
   <div class="wrap nav-row">
@@ -1101,3 +1118,5 @@
   }
 })();
 </script>
+</body>
+</html>
